@@ -1,0 +1,70 @@
+{
+  "host": "localhost",
+  "port": 3030,
+  "public": "../public/",
+  "paginate": {
+    "default": 10,
+    "max": 50
+  },
+  "mongodb": "mongodb://localhost:27017/recipes_api",
+  "authentication": {
+    "secret": "e07891094c3e5a6aa48318a9258c83fe91e3e3cc6a1bd989822e5109f0d35f610f795d574d38a519419c91c267953993316d3c0a31b9f7fafc128320a0a819db60d9113d0cb28d4a219402a2702103cb0115a6edbdabb69631799d6f3da5a2d4859501f5f4377e3430e3b2d036331eb376b31ecec10fc1e434409a97f71c4fa9e1db72cd82be997b24044ee37acc37fd5ff92d68d68a5f33826fe699d7b8802cc87fb66f6c05995e1b31a8c4e11ae6154b760ab61e75a8907c151661a3cea211324de16b5636446ccc71c4b47e4b8b2c8e745f8006da053864cffe6b56f4b6ec7161e67cb6d9a002088238016e479eca6ee30ef2d4178471bb4d217a50487231",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "type": "access"
+      },
+      "audience": "https://yourdomain.com",
+      "subject": "anonymous",
+      "issuer": "feathers",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "service": "users",
+      "usernameField": "email",
+      "passwordField": "password"
+    },
+    "google": {
+      "clientID": "your google client id",
+      "clientSecret": "your google client secret",
+      "successRedirect": "/",
+      "scope": [
+        "profile openid email"
+      ]
+    },
+    "facebook": {
+      "clientID": "your facebook client id",
+      "clientSecret": "your facebook client secret",
+      "successRedirect": "/",
+      "scope": [
+        "public_profile",
+        "email"
+      ],
+      "profileFields": [
+        "id",
+        "displayName",
+        "first_name",
+        "last_name",
+        "email",
+        "gender",
+        "profileUrl",
+        "birthday",
+        "picture",
+        "permissions"
+      ]
+    },
+    "cookie": {
+      "enabled": true,
+      "name": "feathers-jwt",
+      "httpOnly": false,
+      "secure": false
+    }
+  }
+}
