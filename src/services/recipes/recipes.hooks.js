@@ -20,6 +20,7 @@ const likerSchema = {
   }
 };
 
+
 const restrict = [
   authenticate('jwt'),
   restrictToAuthenticated()
