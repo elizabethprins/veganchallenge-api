@@ -12,8 +12,8 @@ module.exports = function (app) {
     ingredient: { type: String, required: true }
   });
 
-  const setSchema = new Schema({
-    name: { type: String, required: true },
+  const cookBookSchema = new Schema({
+    bookTitle: { type: String, required: true },
     summary: { type: String, required: false },
     ownerId: { type: Schema.Types.ObjectId, ref: 'users' },
     createdAt: { type: Date, default: Date.now },
@@ -25,7 +25,7 @@ module.exports = function (app) {
     picture: { type: String, required: true },
     persons: { type: Number, required: true },
     ingredients: [ingredientsSchema],
-    sets: [setSchema],
+    cookBooks: [cookBookSchema],
     breakfast: { type: Boolean, default: false },
     brunch: { type: Boolean, default: false },
     lunch: { type: Boolean, default: false },
