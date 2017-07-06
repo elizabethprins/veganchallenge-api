@@ -11,7 +11,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
     const recipeId = hook.id;
 
     if (!user) {
-      throw new errors.NotAuthenticated('You need to sign in before you can edit recipes!');
+      throw new errors.NotAuthenticated('U moet inloggen voordat u recepten kunt bewerken!');
     }
 
     return recipes.get(recipeId)
@@ -19,7 +19,7 @@ module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
         if (recipe.authorId.toString() !== user._id.toString()) {
           // user is not the author, so we only allow likes.
           if (hook.data.liked === undefined) {
-            throw new errors.Forbidden('You need to be the author to edit this recipe!');
+            throw new errors.Forbidden('U moet de auteur zijn om dit recept te bewerken!');
           }
         }
 
