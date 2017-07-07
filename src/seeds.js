@@ -5,7 +5,7 @@ const hooks = require('feathers-hooks');
 const auth = require('feathers-authentication-client');
 
 const user = {
-  name: 'Admin',
+  name: 'Will Fris',
   email: 'admin@admin.com',
   password: 'qwerty1',
   admin: true,
