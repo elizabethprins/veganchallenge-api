@@ -4,6 +4,9 @@ const errors = require('feathers-errors');
 
 module.exports = function (options = {}) { // eslint-disable-line no-unused-vars
   return function (hook) {
+
+    if (hook.data.added !== undefined) return Promise.resolve(hook);
+
     // Hooks can either return nothing or a promise
     // that resolves with the `hook` object for asynchronous operations
     const user = hook.params.user;
