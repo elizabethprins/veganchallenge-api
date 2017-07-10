@@ -9,7 +9,7 @@ module.exports = function (app) {
   const ingredientsSchema = new Schema({
     amount: { type: Number, required: false },
     measure: { type: String, required: false },
-    ingredient: { type: String, required: true }
+    ingredient: { type: String, required: false }
   });
 
   const recipes = new Schema({
