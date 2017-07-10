@@ -20,6 +20,15 @@ const likerSchema = {
   }
 };
 
+const addingSchema = {
+  include: {
+    service: 'cookbooks',
+    nameAs: 'adders',
+    parentField: 'cookbookId',
+    childField: '_id'
+  }
+};
+
 
 const restrict = [
   authenticate('jwt'),
@@ -27,6 +36,8 @@ const restrict = [
 ];
 
 const makeLikable = require('../../hooks/make-likable');
+
+const makeAddable = require('../../hooks/make-addable');
 
 module.exports = {
   before: {
@@ -38,8 +49,8 @@ module.exports = {
       restrictToAuthenticated(),
       associateCurrentUser({ as: 'authorId' })
     ],
-    update: [...restrict, makeLikable()],
-    patch: [...restrict, makeLikable()],
+    update: [...restrict, makeLikable(), makeAddable()],
+    patch: [...restrict, makeLikable(), makeAddable()],
     remove: [...restrict]
   },
 
