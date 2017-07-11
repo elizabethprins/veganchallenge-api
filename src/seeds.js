@@ -187,7 +187,7 @@ const recipes = [{
 {
   title: 'Carrot cupcakes',
   picture: 'https://veganchallenge.nl/wp-content/uploads/2013/05/JUN_8_ZAT_BAK_Carrot-cake.jpg',
-  persons: 24,
+  persons: 6,
   ingredients: [
     { amount: 500,
       measure: 'ml',
@@ -322,7 +322,7 @@ tip: 'lekker met vers brood met bv. humus. Ook lekker is het een hand fijngesned
 {
 title: 'Vegan kaasvlinders',
 picture: 'https://veganchallenge.nl/wp-content/uploads/2016/03/Vegan-Kaasvlinders-730x450.jpg',
-persons: 5-6,
+persons: 5,
 ingredients: [
   { amount: 270,
     measure: 'gr',
