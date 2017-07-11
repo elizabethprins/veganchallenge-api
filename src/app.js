@@ -19,12 +19,23 @@ const mongodb = require('./mongodb');
 
 const authentication = require('./authentication');
 
+const whitelist = ['http://localhost:3000', 'https://veganisme.herokuapp.com']
+const corsOptionsDelegate = function (req, callback) {
+  let corsOptions;
+  if (whitelist.indexOf(req.header('Origin')) !== -1) {
+    corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
+  } else {
+    corsOptions = { origin: false } // disable CORS for this request
+  }
+  callback(null, corsOptions) // callback expects two parameters: error and options
+}
+
 const app = feathers();
 
 // Load app configuration
 app.configure(configuration(path.join(__dirname, '..')));
 // Enable CORS, security, compression, favicon and body parsing
-app.use(cors());
+app.use(cors(corsOptionsDelegate));
 app.use(helmet());
 app.use(compress());
 app.use(bodyParser.json());
